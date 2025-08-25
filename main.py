@@ -1,10 +1,15 @@
 from fastapi import FastAPI
-from fastapi.staticfiles import StaticFiles
-import os
+from pydantic import BaseModel
 
 app = FastAPI()
 
-if not os.path.exists("static"):
-    os.makedirs("static")
+class UserMsg(BaseModel):
+    message: str
 
-app.mount("/", StaticFiles(directory="static", html=False), name="static")
+@app.get("/health")
+def health():
+    return {"status": "LIVA online ❤️"}
+
+@app.post("/interact")
+def interact(msg: UserMsg):
+    return {"response": f"Ich höre: '{msg.message}'. Und ich bin bei dir."}
