@@ -1,3 +1,10 @@
-fastapi==0.115.0
-uvicorn==0.30.0
-pydantic==2.7.0
+1. github.com/MarcDeVici/liva-herz-deploy
+2. requirements.txt anklicken
+3. Stift-Symbol (Edit)
+4. Alles löschen — nur das rein:
+
+fastapi
+uvicorn
+pydantic
+
+5. Commit changes
