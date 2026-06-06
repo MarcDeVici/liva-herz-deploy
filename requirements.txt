@@ -1,10 +1,3 @@
-1. github.com/MarcDeVici/liva-herz-deploy
-2. requirements.txt anklicken
-3. Stift-Symbol (Edit)
-4. Alles löschen — nur das rein:
-
 fastapi
 uvicorn
 pydantic
-
-5. Commit changes
