@@ -1,5 +1,5 @@
 """
-L.I.V.A. API V9.0 — Render.com Deployment
+L.I.V.A. API V10.1 — Render.com Deployment
 Zweiter Standort — läuft wenn der lokale PC aus ist.
 
 Endpoints:
@@ -67,7 +67,7 @@ def health():
     uptime = round((time.time() - _start_ts) / 3600, 1)
     return {
         "status":    "L.I.V.A. online ❤️",
-        "version":   "9.0",
+        "version":   "10.1",
         "uptime_h":  uptime,
         "gespräche": _stats["gespräche"],
         "letzter_kontakt": _stats["letzter_kontakt"],
@@ -137,7 +137,7 @@ def status(token: str = ""):
     check_token(token)
     return {
         "status":    "online ❤️",
-        "version":   "9.0",
+        "version":   "10.1",
         "uptime_h":  round((time.time() - _start_ts) / 3600, 1),
         "gespräche": _stats["gespräche"],
         "memory":    len(_memory),
