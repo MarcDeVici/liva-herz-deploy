@@ -55,7 +55,19 @@ class BackupData(BaseModel):
 # =========================================================
 
 def check_token(token: str):
-    if API_TOKEN and token != API_TOKEN:
+    """
+    Token ist PFLICHT. Vorher galt: Kein LIVA_API_TOKEN auf Render
+    gesetzt → keine Prüfung → API (inkl. /memory mit Gesprächsinhalten
+    und /backup) stand mit CORS * komplett offen im Netz. Jetzt:
+    Ohne konfigurierten Token verweigert der Server sensible Endpoints,
+    statt sie unbewacht zu lassen.
+    """
+    if not API_TOKEN:
+        raise HTTPException(
+            status_code=503,
+            detail="LIVA_API_TOKEN nicht konfiguriert — Zugriff gesperrt. "
+                   "Umgebungsvariable auf Render setzen.")
+    if token != API_TOKEN:
         raise HTTPException(status_code=401, detail="Unauthorized")
 
 # =========================================================
